@@ -1,24 +1,17 @@
-# 线性回归
-1. 给定一个一次函数$y=1.57x+0.058$
-2. 自己生成一些带有漂移的数据
-3. 利用这些数据再拟合出这个一次函数，以验证结果。
+1. 数据集中有100组数据
 
-- 损失函数
-$$
-loss = \frac{1}{N}\sum\limits_i(w*x_i+b-y_i)^2
-$$
-  
-- 更新参数
-$$
-  w'=w-lr*\frac{\partial loss}{\partial w} 
-$$
-$$ 
-  b'=b-lr*\frac{\partial loss}{\partial b}
-$$
-  
-- 参数更新后有
-$$
-y = w'*x+b'
-$$
+2. 给定预测的目标式 
+   - 一次式：$\hat y = w_0x+b$
+   - 二次式：$\hat y=w_1x^2+w_2x+b$
+   
+3. 设置损失函数并求梯度
 
+    给定损失函数为$loss = \frac{1}{N}\sum\limits_{i=0}^{N}(y-\hat y)^2$
+
+    -   对于一次式：$loss = \frac{1}{N}\sum\limits_{i=0}^{N}(y_i-(w_0x_i+b))^2$
+        -   计算w的偏导数：
+        -   $$\begin{aligned}\frac{\partial loss}{\partial w}&=\frac{\partial loss}{\partial \hat y}\frac{\partial \hat y}{\partial w}\\ &=\frac{1}{N}\sum\limits_{i=1}^{N}(y_i-(w_0x_i+b))x_i \end{aligned}$$
+        -   $$\begin{aligned}\frac{\partial loss}{\partial b}&=\frac{\partial loss}{\partial \hat y}\frac{\partial \hat y}{\partial b}\\ &=\frac{1}{N}\sum\limits_{i=1}^{N}(y_i-(w_0x_i+b)) \end{aligned}$$
+    -   对于二次式：$loss = \frac{1}{N}\sum\limits_{i=0}^{N}(y-(w_1x^2+w_2x+b))^2$
+        -   
 
