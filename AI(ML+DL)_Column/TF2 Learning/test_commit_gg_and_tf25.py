@@ -23,3 +23,4 @@ model.evaluate(x_test, y_test)
 
 
 print("test_E580")
+print("test_Y7000P")
